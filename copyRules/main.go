@@ -47,7 +47,7 @@ func main() {
 	for i, rule := range rules {
 		r := slb20140515.DescribeRuleAttributeResponseBody{}
 		// RuleName
-		r.SetRuleName("xxx_" + *rule.RuleName)
+		r.SetRuleName(*rule.RuleName)
 		// Domain
 		domain, exists := domainMapping[*rule.Domain]
 		if !exists {
@@ -125,7 +125,7 @@ func copyGroups(sourceRegionId *string, sourceLoadBalancerId *string, targetRegi
 		createVServerGroupRequest := &slb20140515.CreateVServerGroupRequest{}
 		createVServerGroupRequest.SetLoadBalancerId(*targetLoadBalancerId)
 		createVServerGroupRequest.SetRegionId(*targetRegionId)
-		createVServerGroupRequest.SetVServerGroupName("xxx_" + *group.VServerGroupName)
+		createVServerGroupRequest.SetVServerGroupName(*group.VServerGroupName)
 		if len(rs.Body.BackendServers.BackendServer) > 0 {
 			servers, _ := json.Marshal(&rs.Body.BackendServers.BackendServer)
 			createVServerGroupRequest.SetBackendServers(string(servers))
