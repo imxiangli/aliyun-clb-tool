@@ -24,3 +24,5 @@ config/app.yaml
 vservergroups
 .idea
 *.iml
+dist/
+.goreleaser.yaml
